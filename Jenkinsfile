@@ -43,6 +43,7 @@ pipeline {
                 branch 'master'
             }
             steps {
+                echo 'do sanity checks at staging before deploy to Production'
                 input 'Does the staging environment look OK?'
                 milestone(1)
                 withCredentials([usernamePassword(credentialsId: 'webserver_login', usernameVariable: 'USERNAME', passwordVariable: 'USERPASS')]) {
